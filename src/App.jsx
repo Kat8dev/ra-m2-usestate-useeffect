@@ -10,6 +10,8 @@ const wrapper = {
   gap: "1rem"
 };
 
+// Al decidir poner todo en un mismo archivo aumentas la complejidad y dificultas la reutilización
+// Crear los siguientes componentes: InputColor, InputNumber, Label, Triangle, Circle y Square. Los componentes de las formas deven devolver un SVG y las propiedades estar validadas con PropTypes idealmente.
 function App() {
   const [properties, setProperties] = useState({
     triangleC: "#ef476f",
@@ -37,6 +39,8 @@ function App() {
   /* hace mucho que estoy dando vueltas 
     y no he podido solucionar el tema de alerts.
     he provado muchas cosas */
+    
+    // Tarda un paso más porque el input number devuelve text y has seteado los valores inicialmente como number
   useEffect(() => {
     if (
       properties.triangleS === properties.circleS &&
@@ -52,6 +56,7 @@ function App() {
     }
   });
 
+// Demasiada complejidad, reducir en componentes más pequeños como indico arriba
   const data = [
     {
       id: "Triangle",
