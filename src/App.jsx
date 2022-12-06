@@ -7,7 +7,7 @@ const wrapper = {
   transform: "translate(-50%)",
   display: "flex",
   flexDirection: "column",
-  gap: "1rem"
+  gap: "1rem",
 };
 
 function App() {
@@ -17,11 +17,11 @@ function App() {
     squareC: "#ffd166",
     squareS: 80,
     circleC: "#06d6a0",
-    circleS: 70
+    circleS: 70,
   });
 
   // Iba a utilizarlos como dependencias para useEffect
-  const [isColorEqual, setIsColorEqual] = useState(false);
+  const [iscolorEqual, setIsColorEqual] = useState(false);
   const [isSizeEqual, setIsSizeEqual] = useState(false);
 
   const handleOnChange = (e) => {
@@ -29,7 +29,7 @@ function App() {
     setProperties((prev) => {
       return {
         ...prev,
-        [name]: value
+        [name]: value,
       };
     });
   };
@@ -60,24 +60,24 @@ function App() {
         height: 0,
         borderBottom: `solid ${properties.triangleS}px ${properties.triangleC}`,
         borderLeft: `${properties.triangleS / 2}px solid transparent`,
-        borderRight: `${properties.triangleS / 2}px solid transparent`
+        borderRight: `${properties.triangleS / 2}px solid transparent`,
       },
       color: properties.triangleC,
       size: properties.triangleS,
       nameC: "triangleC",
-      nameS: "triangleS"
+      nameS: "triangleS",
     },
     {
       id: "square",
       styles: {
         width: `${properties.squareS}px`,
         height: `${properties.squareS}px`,
-        background: properties.squareC
+        background: properties.squareC,
       },
       color: properties.squareC,
       size: properties.squareS,
       nameC: "squareC",
-      nameS: "squareS"
+      nameS: "squareS",
     },
     {
       id: "circle",
@@ -85,13 +85,13 @@ function App() {
         width: `${properties.circleS}px`,
         height: `${properties.circleS}px`,
         background: properties.circleC,
-        borderRadius: "50%"
+        borderRadius: "50%",
       },
       color: properties.circleC,
       size: properties.circleS,
       nameC: "circleC",
-      nameS: "circleS"
-    }
+      nameS: "circleS",
+    },
   ];
 
   return (
