@@ -1,38 +1,33 @@
-const wrapper = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "0.5rem"
-  };
-  
-  const inputs = {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5rem"
-  };
-  
-  function FigureTemplate(props) {
-    return (
-      <div style={wrapper}>
-        <div style={props.styles}></div>
-        <div style={inputs}>
-          <input
+import { InputColor, Label, Flexbox, InputNumber } from "./atoms";
+
+const FigureTemplate = (props) => {
+  return (
+    <Flexbox gap="1rem">
+      <div>{props.children}</div>
+      <Flexbox gap="0.5rem">
+        <Flexbox direction="row" gap="0.5rem">
+          <Label htmlFor={props.id}>{props.valueC}</Label>
+          <InputColor
+            id={props.id}
             type="color"
             name={props.nameC}
             value={props.valueC}
             onChange={props.handleOnChange}
           />
-          <input
-            style={{ maxWidth: "3rem" }}
+        </Flexbox>
+        <div>
+          <Label htmlFor={props.id}></Label>
+          <InputNumber
+            id={props.id}
             type="number"
             name={props.nameS}
             value={props.valueS}
             onChange={props.handleOnChange}
           />
         </div>
-      </div>
-    );
-  }
-  
-  export default FigureTemplate;
-  
+      </Flexbox>
+    </Flexbox>
+  );
+};
+
+export default FigureTemplate;

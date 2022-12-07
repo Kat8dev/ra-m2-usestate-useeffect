@@ -1,14 +1,6 @@
-import FigureTemplate from "./components/FigureTemplate";
 import { useEffect, useState } from "react";
-
-const wrapper = {
-  position: "absolute",
-  left: "50%",
-  transform: "translate(-50%)",
-  display: "flex",
-  flexDirection: "column",
-  gap: "1rem"
-};
+import FigureTemplate from "./components/FigureTemplate";
+import { SvgCircle, SvgTriangle, SvgSquare, Flexbox } from "./components/atoms";
 
 function App() {
   const [properties, setProperties] = useState({
@@ -17,101 +9,75 @@ function App() {
     squareC: "#ffd166",
     squareS: 80,
     circleC: "#06d6a0",
-    circleS: 70
+    circleS: 70,
   });
-
-  // Iba a utilizarlos como dependencias para useEffect
-  const [isColorEqual, setIsColorEqual] = useState(false);
-  const [isSizeEqual, setIsSizeEqual] = useState(false);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setProperties((prev) => {
       return {
         ...prev,
-        [name]: value
+        [name]: value,
       };
     });
   };
 
-  /* hace mucho que estoy dando vueltas 
-    y no he podido solucionar el tema de alerts.
-    he provado muchas cosas */
   useEffect(() => {
     if (
       properties.triangleS === properties.circleS &&
       properties.triangleS === properties.squareS
     ) {
-      alert("colors");
+      alert("sizes are equal");
     }
     if (
       properties.triangleC === properties.circleC &&
       properties.triangleC === properties.squareC
     ) {
-      alert("numbers");
+      alert("colors are equal");
     }
   });
 
-  const data = [
-    {
-      id: "Triangle",
-      styles: {
-        width: 0,
-        height: 0,
-        borderBottom: `solid ${properties.triangleS}px ${properties.triangleC}`,
-        borderLeft: `${properties.triangleS / 2}px solid transparent`,
-        borderRight: `${properties.triangleS / 2}px solid transparent`
-      },
-      color: properties.triangleC,
-      size: properties.triangleS,
-      nameC: "triangleC",
-      nameS: "triangleS"
-    },
-    {
-      id: "square",
-      styles: {
-        width: `${properties.squareS}px`,
-        height: `${properties.squareS}px`,
-        background: properties.squareC
-      },
-      color: properties.squareC,
-      size: properties.squareS,
-      nameC: "squareC",
-      nameS: "squareS"
-    },
-    {
-      id: "circle",
-      styles: {
-        width: `${properties.circleS}px`,
-        height: `${properties.circleS}px`,
-        background: properties.circleC,
-        borderRadius: "50%"
-      },
-      color: properties.circleC,
-      size: properties.circleS,
-      nameC: "circleC",
-      nameS: "circleS"
-    }
-  ];
-
   return (
-    <div style={{ position: "relative", width: "100vw" }}>
-      {
-        <div style={wrapper}>
-          {data.map((item) => (
-            <FigureTemplate
-              key={item.id}
-              styles={item.styles}
-              valueC={item.color}
-              valueS={item.size}
-              nameS={item.nameS}
-              nameC={item.nameC}
-              handleOnChange={handleOnChange}
-            />
-          ))}
-        </div>
-      }
-    </div>
+    <Flexbox>
+      <FigureTemplate
+        id="triangle"
+        valueS={properties.triangleS}
+        valueC={properties.triangleC}
+        nameC="triangleC"
+        nameS="triangleS"
+        handleOnChange={handleOnChange}
+      >
+        <SvgTriangle size={properties.triangleS} color={properties.triangleC} />
+      </FigureTemplate>
+      <FigureTemplate
+        id="square"
+        valueS={properties.squareS}
+        valueC={properties.squareC}
+        nameC="squareC"
+        nameS="squareS"
+        handleOnChange={handleOnChange}
+      >
+        <SvgSquare
+          width={properties.squareS}
+          height={properties.squareS}
+          color={properties.squareC}
+        />
+      </FigureTemplate>
+      <FigureTemplate
+        id="circle"
+        valueS={properties.circleS}
+        valueC={properties.circleC}
+        nameC="circleC"
+        nameS="circleS"
+        handleOnChange={handleOnChange}
+      >
+        <SvgCircle
+          width={properties.circleS}
+          height={properties.circleS}
+          color={properties.circleC}
+        />
+      </FigureTemplate>
+    </Flexbox>
   );
 }
 
