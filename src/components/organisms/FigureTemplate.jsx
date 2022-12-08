@@ -2,6 +2,7 @@ import { Flexbox } from "../atoms/atoms";
 import InputCMolecule from "../molecules/InputCMolecule";
 import InputNMolecule from "../molecules/InputNMolecule";
 
+// No solo en este componente, pero también en el resto de los componentes destructura las props y utiliza PropTypes para hacer más explicito y mejor documentado el código.
 const FigureTemplate = (props) => {
   return (
     <Flexbox gap="1rem">
