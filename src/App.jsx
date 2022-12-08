@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import FigureTemplate from "./components/FigureTemplate";
-import { SvgCircle, SvgTriangle, SvgSquare, Flexbox } from "./components/atoms";
+import FigureTemplate from "./components/organisms/FigureTemplate";
+import { SvgCircle, SvgTriangle, SvgSquare, Flexbox } from "./components/atoms/atoms";
 
 function App() {
   const [properties, setProperties] = useState({
@@ -40,7 +40,8 @@ function App() {
   return (
     <Flexbox>
       <FigureTemplate
-        id="triangle"
+        colorId="triangleC"
+        numberId="triengleS"
         valueS={properties.triangleS}
         valueC={properties.triangleC}
         nameC="triangleC"
@@ -50,7 +51,8 @@ function App() {
         <SvgTriangle size={properties.triangleS} color={properties.triangleC} />
       </FigureTemplate>
       <FigureTemplate
-        id="square"
+        colorId="squareC"
+        numberId="squareS"
         valueS={properties.squareS}
         valueC={properties.squareC}
         nameC="squareC"
@@ -64,7 +66,8 @@ function App() {
         />
       </FigureTemplate>
       <FigureTemplate
-        id="circle"
+        colorId="circleC"
+        numberId="circleS"
         valueS={properties.circleS}
         valueC={properties.circleC}
         nameC="circleC"
