@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import FigureTemplate from "./components/organisms/FigureTemplate";
-import { SvgCircle, SvgTriangle, SvgSquare, Flexbox } from "./components/atoms/atoms";
+import { Flexbox } from "./components/styled/layout/flexbox";
+import FigureTemplate from "./components/organisms/figureTemplate/FigureTemplate";
+import Triangle from "./components/atoms/triangle/Index";
+import Square from "./components/atoms/square/Index";
+import Circle from "./components/atoms/circle/Index";
 
 function App() {
   const [properties, setProperties] = useState({
     triangleC: "#ef476f",
-    triangleS: 50,
+    triangleS: "50",
     squareC: "#ffd166",
-    squareS: 80,
+    squareS: "80",
     circleC: "#06d6a0",
-    circleS: 70,
+    circleS: "70",
   });
 
   const handleOnChange = (e) => {
@@ -40,45 +43,43 @@ function App() {
   return (
     <Flexbox>
       <FigureTemplate
-        colorId="triangleC"
-        numberId="triengleS"
-        valueS={properties.triangleS}
-        valueC={properties.triangleC}
-        nameC="triangleC"
+        htmlForS="triangleS"
+        idS="triangleS"
         nameS="triangleS"
-        handleOnChange={handleOnChange}
+        valueS={properties.triangleS}
+        htmlForC="triangleC"
+        idC="triangleC"
+        nameC="triangleC"
+        valueC={properties.triangleC}
+        onChange={handleOnChange}
       >
-        <SvgTriangle size={properties.triangleS} color={properties.triangleC} />
+        {<Triangle size={properties.triangleS} color={properties.triangleC} />}
       </FigureTemplate>
       <FigureTemplate
-        colorId="squareC"
-        numberId="squareS"
-        valueS={properties.squareS}
-        valueC={properties.squareC}
-        nameC="squareC"
+        htmlForS="squareS"
+        idS="squareS"
         nameS="squareS"
-        handleOnChange={handleOnChange}
+        valueS={properties.squareS}
+        htmlForC="squareC"
+        idC="squareC"
+        nameC="squareC"
+        valueC={properties.squareC}
+        onChange={handleOnChange}
       >
-        <SvgSquare
-          width={properties.squareS}
-          height={properties.squareS}
-          color={properties.squareC}
-        />
+        {<Square size={properties.squareS} color={properties.squareC} />}
       </FigureTemplate>
       <FigureTemplate
-        colorId="circleC"
-        numberId="circleS"
-        valueS={properties.circleS}
-        valueC={properties.circleC}
-        nameC="circleC"
+        htmlForS="circleS"
+        idS="circleS"
         nameS="circleS"
-        handleOnChange={handleOnChange}
+        valueS={properties.circleS}
+        htmlForC="circleC"
+        idC="circleC"
+        nameC="circleC"
+        valueC={properties.circleC}
+        onChange={handleOnChange}
       >
-        <SvgCircle
-          width={properties.circleS}
-          height={properties.circleS}
-          color={properties.circleC}
-        />
+        {<Circle size={properties.circleS} color={properties.circleC} />}
       </FigureTemplate>
     </Flexbox>
   );
