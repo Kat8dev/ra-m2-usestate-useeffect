@@ -3,8 +3,6 @@ import InputColorMolecule from "../../molecules/inputColorMolecule/InputColorMol
 import InputNumberMolecule from "../../molecules/inputNumberMolecule/InputNumberMolecule";
 import PropTypes from "prop-types";
 
-
-// No solo en este componente, pero también en el resto de los componentes destructura las props y utiliza PropTypes para hacer más explicito y mejor documentado el código.
 const FigureTemplate = ({htmlForS, idS, nameS, valueS, htmlForC, idC, nameC, valueC, onChange, children}) => {
   return (
     <Flexbox gap="1rem">
@@ -16,16 +14,7 @@ const FigureTemplate = ({htmlForS, idS, nameS, valueS, htmlForC, idC, nameC, val
 };
 
 FigureTemplate.proptype = {
-  htmlForS: PropTypes.string.isRequired, 
-  idS: PropTypes.string.isRequired, 
-  nameS: PropTypes.string.isRequired, 
-  valueS: PropTypes.string.isRequired, 
-  htmlForC: PropTypes.string.isRequired, 
-  dC: PropTypes.string.isRequired, 
-  nameC: PropTypes.string.isRequired, 
-  valueC: PropTypes.string.isRequired, 
-  onChange: PropTypes.func.isRequired,
-  children: PropTypes.any.isRequired,
+  children: PropTypes.func.isRequired,
 }
 
 export default FigureTemplate;
